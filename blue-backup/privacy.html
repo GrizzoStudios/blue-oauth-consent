@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blue Backup: Privacy Policy</title>
+<style>
+  :root { color-scheme: light dark; --bg: #ffffff; --fg: #1d2330; --muted: #5a6475; --accent: #2f5fd0; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #11151c; --fg: #e6e9ef; --muted: #9aa3b2; --accent: #8fb0ff; } }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 40px 16px 64px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  h2 { font-size: 1.1rem; margin: 28px 0 6px; }
+  p, li { color: var(--fg); }
+  .muted { color: var(--muted); font-size: 0.9rem; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Blue Backup: Privacy Policy</h1>
+  <p class="muted">Last updated 2026-09-30</p>
+
+  <p>Blue Backup is a private tool used by one person, its owner, to back up their own app data (the database behind their personal apps) into their own Google Drive. It is not offered to anyone else.</p>
+
+  <h2>What it can access</h2>
+  <ul>
+    <li>Only the Google Drive files and folders it created itself (Google's <code>drive.file</code> permission). It cannot see or open anything else in the Drive.</li>
+    <li>The Google account's email address, to confirm which account was connected.</li>
+  </ul>
+
+  <h2>What it keeps</h2>
+  <ul>
+    <li>The backup files, in the owner's own Google Drive.</li>
+    <li>The access token Google issues, stored as a secret on the owner's own server and used only to write and tidy those backups.</li>
+  </ul>
+
+  <h2>What it doesn't do</h2>
+  <p>Nothing is shared, sold, or used for any other purpose, and no one else's data is involved. No analytics, ads or tracking.</p>
+
+  <h2>Removing access</h2>
+  <p>Google Account → Security → Third-party access → Blue Backup → Remove access. Backups stop immediately; files already in Drive stay until you delete them.</p>
+
+  <h2>Contact</h2>
+  <p>Use the developer email shown on Google's consent screen for Blue Backup.</p>
+
+  <p class="muted"><a href="./">Blue Backup home</a></p>
+</main>
+</body>
+</html>
