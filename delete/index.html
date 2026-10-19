@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LemonVanilla: Delete Your Account</title>
+<style>
+  :root { color-scheme: light dark; --bg: #ffffff; --fg: #1d2330; --muted: #5a6475; --accent: #0e8a7d; --card: #f3f6f7; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0a1a1f; --fg: #e6eef0; --muted: #9ab0b4; --accent: #4fd8c4; --card: #12262c; } }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 40px 16px 64px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  h2 { font-size: 1.1rem; margin: 28px 0 6px; }
+  h3 { font-size: 1rem; margin: 0 0 4px; }
+  .muted { color: var(--muted); font-size: 0.9rem; }
+  a { color: var(--accent); }
+  .ask { background: var(--card); border-radius: 12px; padding: 16px; margin: 16px 0; }
+  .ask p { margin: 4px 0; }
+  .app { background: var(--card); border-radius: 12px; padding: 14px 16px; margin: 10px 0; scroll-margin-top: 16px; }
+  .app p { margin: 4px 0; }
+  .app:target { outline: 2px solid var(--accent); }
+  code { font-size: 0.95em; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Delete your account and data</h1>
+  <p class="muted">LemonVanilla · Last updated 2026-10-19</p>
+
+  <p>This page is for LemonVanilla's apps: Lattice, Roundtuit, Echo and Roots. You can ask for your account and its data to be deleted here, even if the app is no longer on your phone.</p>
+
+  <div class="ask">
+    <h3>How to ask</h3>
+    <p>Email <a href="mailto:bluehourapps@gmail.com?subject=Delete%20my%20account">bluehourapps@gmail.com</a> from the Google account you signed in with. Say which app. We reply when it's done, within 7 days.</p>
+    <p>We only act on requests from the account's own email address, so nobody can delete someone else's account.</p>
+  </div>
+
+  <h2>Before you ask</h2>
+  <p>If you have a Sync Monthly or Sync Yearly plan, cancel it in Google Play first (Play Store → your profile → Payments &amp; subscriptions → Subscriptions). Deleting your account doesn't cancel it.</p>
+
+  <h2>What gets deleted</h2>
+  <ul>
+    <li>Your account for that app.</li>
+    <li>Everything that app keeps for you on our servers.</li>
+  </ul>
+  <p>Each app's account is separate. Deleting your account in one app doesn't touch your data in the others. To delete more than one, name each app.</p>
+
+  <h2>What isn't deleted</h2>
+  <ul>
+    <li>Backups the app made to your own Google Drive. They're in your Drive, and only you can delete them.</li>
+    <li>What's stored on your phone. Uninstall the app, or use Wipe all data in its settings.</li>
+  </ul>
+
+  <h2>How long we keep data</h2>
+  <p>When a Sync plan ends, your data moves to your phone and we keep the server copy through the end of the next full calendar month, in case you come back. Then it's deleted. A deletion request removes it straight away.</p>
+
+  <h2>Each app</h2>
+
+  <div class="app" id="lattice">
+    <h3>Lattice</h3>
+    <p>In the app: Settings → Data → Danger Zone → Delete Account. Or email us as above.</p>
+    <p class="muted"><a href="../lattice/privacy.html">Lattice privacy policy</a></p>
+  </div>
+
+  <div class="app" id="roundtuit">
+    <h3>Roundtuit</h3>
+    <p>Email us as above.</p>
+    <p class="muted"><a href="../roundtuit/privacy.html">Roundtuit privacy policy</a></p>
+  </div>
+
+  <div class="app" id="echo">
+    <h3>Echo</h3>
+    <p>Email us as above.</p>
+  </div>
+
+  <div class="app" id="roots">
+    <h3>Roots</h3>
+    <p>Email us as above.</p>
+  </div>
+</main>
+</body>
+</html>
