@@ -32,14 +32,18 @@
   <ul>
     <li>Your library: the shows you follow, their episodes, your Queue, playlists, bookmarks, listening progress and history, listening stats and your settings. It is stored on your phone.</li>
     <li>If you use Echo Sync, the same library is kept in a private cloud database, where row-level security limits each row to its owner's account, so it follows you to another phone.</li>
-    <li>If you use Google Drive Backup, a copy of your library is saved to a folder Echo makes in your own Google Drive.</li>
-    <li>Feedback you send from the app, with the details you choose to include.</li>
+    <li>If you use Google Drive Backup, a copy of your library, noting the phone model that made it, is saved to a folder Echo makes in your own Google Drive.</li>
+    <li>While signed in, your optional profile (display name, gender, birth month and year) and which plan goes with the account. Only you can read it.</li>
+    <li>Hand-off between your devices: each device's name and, for each, the episode, the spot in it and whether it is playing. A device's entry is deleted 180 days after it was last used.</li>
+    <li>For Play on, each phone's push token (from Google's Firebase Cloud Messaging), kept on the developer's server so another of your devices can start playback there.</li>
+    <li>Feedback you send from the app: your message plus the Echo version, your plan, the phone's make, model and Android version and, if signed in, the account email and user ID. It is stored in Echo's database and emailed to Echo's feedback inbox. Feedback sent while signed in is deleted with the account.</li>
   </ul>
 
   <h2>Who else is involved</h2>
   <ul>
     <li>Podcast episodes and artwork are downloaded straight from each show's own host, as with any podcast app.</li>
-    <li>Podcast search and Discover go through the developer's own server, which asks Podcast Index on Echo's behalf. Only the search words are sent, never your account.</li>
+    <li>Podcast search and Discover go through the developer's own server, which asks Podcast Index on Echo's behalf, and to Apple's podcast search and Top Podcasts chart straight from the phone. Only the search words are sent, never your account.</li>
+    <li>Play on uses Google's Firebase Cloud Messaging to deliver the start-playback message to your other device.</li>
     <li>If paid plans are offered, purchases are handled by Google Play, and RevenueCat records which plan the account has. Echo never sees card details.</li>
   </ul>
 
