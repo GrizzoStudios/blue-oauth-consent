@@ -35,15 +35,17 @@
     <li>If you use Google Drive Backup, a copy of your library, noting the phone model that made it, is saved to a folder Echo makes in your own Google Drive.</li>
     <li>While signed in, your optional profile (display name, gender, birth month and year) and which plan goes with the account. Only you can read it.</li>
     <li>Hand-off between your devices: each device's name and, for each, the episode, the spot in it and whether it is playing. A device's entry is deleted 180 days after it was last used.</li>
-    <li>For Play on, each phone's push token (from Google's Firebase Cloud Messaging), kept on the developer's server so another of your devices can start playback there.</li>
+    <li>For Play on (with Echo Sync only), each phone's push token from Google's Firebase Cloud Messaging, stored on the developer's server with the Echo version. No app or other account can read it. It is deleted when that phone signs out (or at its next online start), when its device entry goes, when Google reports it no longer works, or with the account. Firebase gives every install a token, but only Echo Sync sends it to the server.</li>
+    <li>Play on send records, which hold no episode and are kept about a day, until a later Play on request clears them.</li>
     <li>Feedback you send from the app: your message plus the Echo version, your plan, the phone's make, model and Android version and, if signed in, the account email and user ID. It is stored in Echo's database and emailed to Echo's feedback inbox. Feedback sent while signed in is deleted with the account.</li>
   </ul>
 
   <h2>Who else is involved</h2>
   <ul>
     <li>Podcast episodes and artwork are downloaded straight from each show's own host, as with any podcast app.</li>
-    <li>Podcast search and Discover go through the developer's own server, which asks Podcast Index on Echo's behalf, and also go straight from the phone to Apple's podcast search and Top Podcasts chart. Only the search words are sent, never your account.</li>
-    <li>Play on uses Google's Firebase Cloud Messaging to deliver the start-playback message to your other device.</li>
+    <li>Podcast search and Discover go through the developer's own server, which asks Podcast Index on Echo's behalf. It sends the search words, the category and language you pick, and Apple's show ID for Search Episodes' language check. No account data is sent.</li>
+    <li>Apple: searches, charts and show lookups go straight from the phone to itunes.apple.com, with rss.marketingtools.apple.com as the backup chart. They carry only the search words, the chart or category, show IDs and the US store. Show artwork loads from Apple, and an Apple Podcasts link opens only when you tap it.</li>
+    <li>Play on uses Google's Firebase Cloud Messaging to deliver the start-playback message to your other device. The message carries the episode's feed ID, the spot to start from, the sending phone's name, your Echo account ID, a request ID and the time it was sent.</li>
     <li>If paid plans are offered, purchases are handled by Google Play, and RevenueCat records which plan the account has. Echo never sees card details.</li>
   </ul>
 
@@ -52,7 +54,7 @@
 
   <h2>Your choices</h2>
   <ul>
-    <li>Everything can be exported or deleted in the app, under Settings → Data, including deleting the account. You can also ask for deletion on the <a href="../delete/">account and data deletion page</a>.</li>
+    <li>Signing out deletes none of your library, only that phone's push token. Everything can be exported or deleted in the app, under Settings → Data, including deleting the account. You can also ask for deletion on the <a href="../delete/">account and data deletion page</a>.</li>
     <li>To remove Echo's access to your Google account: Google Account → Security → Third-party access → Echo → Remove access.</li>
   </ul>
 
