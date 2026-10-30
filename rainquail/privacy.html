@@ -26,6 +26,7 @@
   <ul>
     <li>You don't have to sign in. Rainquail works fully on your phone without an account. Rainquail asks you to sign in with Google only when you choose Daily Backup or Sync.</li>
     <li>The Google account's name and email address, used only to identify the account that owns the yard.</li>
+    <li>Your plan: a record of which Rainquail plan the account has, kept in Rainquail's database with the account's user ID (and, for a plan set before you first sign in, the email it was set for). The plan is set by hand; nothing is bought in the app yet.</li>
     <li>With Daily Backup: access to the files Rainquail itself makes in your Google Drive, and nothing else there. Rainquail cannot see your other Drive files, Gmail or contacts.</li>
   </ul>
 
@@ -35,7 +36,7 @@
     <li>Rainquail talks to your Rain Bird controller directly over your home Wi-Fi, not through any server. Which controller you have (and, for another brand, the brand and model you type), its local address and its model name are kept with your settings.</li>
     <li>The controller password or PIN is kept in Android's encrypted storage on this phone. Rainquail uses it only to lock the messages it sends to your controller over your home Wi-Fi; it is never sent anywhere else and never included in an export, backup or sync.</li>
     <li>App Lock uses the phone's own fingerprint, face or screen lock. Rainquail never sees or stores them.</li>
-    <li>With Daily Backup, a copy of your yard is saved to a folder Rainquail makes in your own Google Drive. That copy is yours, and you can delete it there at any time.</li>
+    <li>With Daily Backup, a copy of your yard is saved to a folder Rainquail makes in your own Google Drive. That copy is yours, and you can delete it there at any time. It never includes photos, the controller's password or PIN, its address or any Wi-Fi details.</li>
     <li>Feedback you send from the app: your message plus the Rainquail version, your plan, the phone's make, model and Android version, a reply email only if you give one and, if signed in, the account email and user ID. It is stored in Rainquail's database and emailed to Rainquail's feedback inbox. When you are not signed in, a salted, one-way code made from the phone's internet address is kept only to limit how much feedback can be sent.</li>
   </ul>
 
@@ -55,7 +56,7 @@
 
   <h2>Your choices</h2>
   <ul>
-    <li>Everything can be exported or deleted in the app, under Settings → Data, including deleting the account. You can also ask for deletion on the <a href="../delete/">account and data deletion page</a>.</li>
+    <li>Everything can be exported or deleted in the app, under Settings → Data, including deleting the account. Deleting the account removes your plan record and the feedback you sent, and your Google sign-in once no other app still uses it; your Drive backup stays in your Drive. You can also ask for deletion on the <a href="../delete/">account and data deletion page</a>.</li>
     <li>To remove Rainquail's access to your Google account: Google Account → Security → Third-party access → Rainquail → Remove access.</li>
   </ul>
 
