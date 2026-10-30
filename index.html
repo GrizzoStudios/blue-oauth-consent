@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blue — allow access?</title>
+<title>Allow access?</title>
 <style>
   :root { color-scheme: dark; }
   body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0b1020; color: #e8ecf5; font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
@@ -21,7 +21,7 @@
 </style>
 </head>
 <body>
-<main id="app"><h1>Blue</h1><p id="status">Checking your sign-in…</p></main>
+<main id="app"><h1>Allow access?</h1><p id="status">Checking your sign-in…</p></main>
 <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
@@ -29,7 +29,11 @@ const SUPABASE_URL = "https://hgfktbhjegakgzqqimbg.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_12YPySCowwHtXPMG8d3eLQ_m0L2UB1_";
 const app = document.getElementById('app');
 const setStatus = (t) => { document.getElementById('status').textContent = t; };
-const fail = (msg) => { app.innerHTML = '<h1>Blue</h1><p class="err"></p>'; app.querySelector('.err').textContent = msg; };
+// Every value from the request (app name, email, scopes) goes in through
+// textContent, never innerHTML: dynamic registration lets any client pick its
+// own name, so a name could otherwise carry HTML or script onto this page.
+const el = (tag, text, cls) => { const n = document.createElement(tag); if (text != null) n.textContent = text; if (cls) n.className = cls; return n; };
+const fail = (msg) => { app.replaceChildren(el('h1', 'Allow access?'), el('p', msg, 'err')); };
 
 const params = new URLSearchParams(location.search);
 const authorizationId = params.get('authorization_id');
@@ -53,13 +57,24 @@ try {
       const client = details?.client?.name ?? details?.client_name ?? 'an app';
       const scopes = details?.scopes ?? details?.scope?.split(' ') ?? [];
       const email = session.user.email ?? session.user.id;
-      app.innerHTML = `
-        <h1>Allow <span class="who">${client}</span> to act as you?</h1>
-        <p>Signed in as <span class="who">${email}</span>.</p>
-        <p>This is the <b>Blue write connector</b>. Approving lets it read your data and <b>propose</b> changes; every actual change still needs your tap in the Claude app and is receipted.</p>
-        ${scopes.length ? '<p>Requested scopes:</p><ul>' + scopes.map(s => '<li>' + s + '</li>').join('') + '</ul>' : ''}
-        <div class="row"><button id="deny">Deny</button><button id="approve" class="primary">Approve</button></div>
-        <p class="muted">Not you? Deny, then sign out of Google in this browser.</p>`;
+      const h1 = el('h1');
+      h1.append(el('span', String(client), 'who'), ' wants to use your account');
+      const who = el('p', 'Signed in as ');
+      who.append(el('span', String(email), 'who'), '.');
+      const parts = [h1, who,
+        el('p', 'Approving lets this AI app read your data and make the changes you ask it for. You can see everything it did, and sign it out, in the app’s Settings.')];
+      if (scopes.length) {
+        parts.push(el('p', 'Requested access:'));
+        const ul = el('ul');
+        for (const sc of scopes) ul.append(el('li', String(sc)));
+        parts.push(ul);
+      }
+      const row = el('div', null, 'row');
+      const deny = el('button', 'Deny'); deny.id = 'deny';
+      const approve = el('button', 'Approve', 'primary'); approve.id = 'approve';
+      row.append(deny, approve);
+      parts.push(row, el('p', 'Not you? Deny, then sign out of Google in this browser.', 'muted'));
+      app.replaceChildren(...parts);
       const buttons = [...app.querySelectorAll('button')];
       const go = async (fn) => {
         buttons.forEach(b => b.disabled = true);
